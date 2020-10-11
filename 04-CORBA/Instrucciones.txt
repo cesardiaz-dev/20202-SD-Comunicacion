@@ -1,0 +1,22 @@
+Nota: Java ha dejado de incorporar las herramientas de CORBA desde la version JDK 1.9+,
+      por lo tanto, para hacer que este ejemplo funcione necesita tener instalado JDK 1.8
+      (Ubuntu o Debian)$ sudo apt install openjdk-8-jdk-headless
+      (Ubuntu o Debian)$ sudo update-alternatives --config java (escojer java-8-openjdk)
+      (Ubuntu o Debian)$ sudo update-alternatives --config javac (escojer java-8-openjdk)
+
+Para correr la aplicacion, hay que seguir los siguentes pasos:
+
+1. En un terminal, parece en la ruta donde se encuentra Calculadora.idl
+2. Corra el compilador de IDL a Java
+   idlj -fall Calculadora.idl
+3. Compile los archivos .java del codigo fuente y el codigo generado
+   javac *.java prueba/*.java
+4. Inicie el servicio orbd
+   Linux $ orbd -ORBInitialPort 1050 -ORBInitialHost localhost &
+   Windows> start orbd -ORBInitialPort 1050 -ORBInitialHost localhost
+5. Iniciar el Servidor
+   Linux $ java Servidor -ORBInitialPort 1050 -ORBInitialHost localhost&
+   Windows> start java Servidor -ORBInitialPort 1050 -ORBInitialHost localhost
+6. Correr el cliente
+   java Cliente -ORBInitialPort 1050 -ORBInitialHost localhost
+

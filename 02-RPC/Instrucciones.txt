@@ -1,0 +1,31 @@
+Antes de empezar, verifique que tenga instalado el ambiente para ejecutar RPC
+ (ubuntu o debian)$ rpcinfo
+
+Si no da información sobre el ambiente o si dice que el comando no existe:
+ (ubuntu o debian)$ sudo apt install rpcbind -y 
+
+Para correr la aplicacion, hay que seguir los siguentes pasos:
+
+1. En un terminal, parece en la ruta donde se encuentra suma.x
+2. Corra el Generador de archivos de RPC
+ $ rpcgen -a suma.x
+3. Modificar el archivo suma_server.c para implementar el metodo publicado
+   result = argp->num1 + argp->num2;
+4. Modificar el archivo suma_client.c para hacer la llamada al metodo
+   // Capturo los valores que se van a mandar al procedimiento remoto
+   printf("Entre el numero 1: ");
+   scanf("%d",&suma_1_arg.num1);
+   printf("Entre el numero 2: ");
+   scanf("%d",&suma_1_arg.num2);
+
+   // respues de recibir la respuesta
+   printf("El resultado es: %d\n",*result_1);
+5. Compilar los archivos del codigo fuente
+   make -f Makefile.suma
+6. Iniciar el Servidor
+   sudo ./suma_server&
+7. Correr el cliente
+   ./suma_client localhost
+
+Si se desea borrar los archivos generados, se puede ejecutar:
+   make -f Makefile.suma clean

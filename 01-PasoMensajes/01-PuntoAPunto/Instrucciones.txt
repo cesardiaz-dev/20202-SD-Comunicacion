@@ -1,0 +1,43 @@
+.: Complilacion de aplicaciones :.
+======================================================
+1. Servidor secuencial
+$ gcc EchoServer.c -o EchoServer
+
+2. Servidor concurrente (procesos)
+$ gcc EchoServerProcess.c -o EchoServerProcess
+
+3. Servidor concurrente (hilos)
+$ gcc -lpthread EchoServerThread.c -o EchoServerThread
+
+4. Servidor concurrente (eventos)
+$ gcc EchoServerEvent.c -o EchoServerEvent
+
+5. Cliente que envia 1 peticion por conexion
+$ gcc EchoClient.c -o EchoClient
+
+
+.: Ejecucion de aplicaciones :.
+======================================================
+1. Servidor secuencial
+$ ./EchoServer <puerto>
+Ej:$ ./EchoServer 7777
+
+2. Servidor concurrente (procesos)
+$ ./EchoServerProcess <puerto>
+Ej:$ ./EchoServerProcess 7777
+
+3. Servidor concurrente (hilos)
+$ ./EchoServerThread <puerto>
+Ej:$ ./EchoServerThread 7777
+
+4. Servidor concurrente (eventos)
+$ ./EchoServerEvent <puerto>
+Ej:$ ./EchoServerEvent 7777
+
+5. Cliente que envia 1 peticion por conexion
+$ ./EchoClient <host> <puerto> <palabra>
+Ej:$ ./EchoClient 127.0.0.1 7777 "Hola Mundo"
+
+6. Cliente que envia n peticiones por conexion
+$ ./EchoClient <host> <puerto> <palabra>
+Ej:$ telnet 127.0.0.1 7777

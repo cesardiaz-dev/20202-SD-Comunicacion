@@ -1,0 +1,11 @@
+Para correr la aplicacion, hay que seguir los siguentes pasos:
+
+1. Compilando los programas
+   $ javac cliente/*.java compartido/*.java servidor/*.java
+2. Iniciar el Binder local (puerto por defecto 1099)
+   Linux $ rmiregistry &
+   Windows > start rmiregistry
+4. Iniciar el servidor
+   java -Djava.rmi.server.hostname=localhost servidor.Servidor
+5. En otra consola, iniciamos el cliente
+   java cliente.Cliente localhost

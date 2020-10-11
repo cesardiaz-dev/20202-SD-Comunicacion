@@ -1,0 +1,10 @@
+module distribuidos {
+    interface Calculadora{
+        double add(in double x,in double y);
+        double substract(in double x,in double y);
+        double multiply(in double x,in double y);
+        double divide(in double x,in double y);
+        void storeMemory(in double x);
+        double readMemory();
+    };
+};
