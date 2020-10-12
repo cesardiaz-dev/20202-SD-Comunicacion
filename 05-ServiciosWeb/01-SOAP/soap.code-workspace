@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "soap-server"
+		},
+		{
+			"name": "soap-client",
+			"path": "soap-client"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic"
+	}
+}
